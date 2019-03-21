@@ -7,12 +7,17 @@ import java.util.regex.Pattern;
 ///First find comments in the input then find integrals then the rest
 
 public class Main {
-    private static ArrayList<Token> getAllTokens() {
+    private static ArrayList<Token> addAllTokens() {
         ArrayList<Token> tokens = new ArrayList<Token>();
+        /// comments must be added first
         tokens.addAll(Comments.getInstance().getArrayOfComments());
+        ///keywords must be added second
+        tokens.addAll(Keywords.getInstance().getArrayOfKeywords());
         tokens.addAll(Strings.getInstance().getArrayOfStrings());
         tokens.addAll(Identifiers.getInstance().getArrayOfIdentifiers());
         tokens.addAll(Operators.getInstance().getArrayOfOperators());
+        tokens.addAll(Constants.getInstance().getArrayOfConstants());
+        tokens.addAll(SpecialSymbols.getInstance().getArrayOfSpecialSymbols());
 
         return tokens;
     }
@@ -27,7 +32,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        ArrayList<Token> tokens = getAllTokens();
+        ArrayList<Token> tokens = addAllTokens();
 
         String input = "}}}";
         int inputLenght = input.length();
