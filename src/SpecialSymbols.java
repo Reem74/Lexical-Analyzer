@@ -12,8 +12,10 @@ public class SpecialSymbols {
         arrayOfSpecialSymbols.add(new Token("," ,"<COMMA>"));
         arrayOfSpecialSymbols.add(new Token(";" ,"<SEMICOLON>"));
         arrayOfSpecialSymbols.add(new Token("\\." ,"<DOT>"));
-
+        /*
+        back Slash not workint
         //arrayOfSpecialSymbols.add(new Token("\\" ,"<BACKWARD_SLASH>"));
+        */
 
     }
     private static final SpecialSymbols instance = new SpecialSymbols();
