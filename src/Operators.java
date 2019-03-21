@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Operators{
     ArrayList<Token> arrayOfOperators = new ArrayList<Token>();
     private Operators() {
-
         arrayOfOperators.add(new Token("}" ,"<LEFT_CURLY_B>"));
         arrayOfOperators.add(new Token("\\{" ,"<RIGHT_CURLY_B>"));
         arrayOfOperators.add(new Token("]" ,"<LEFT_SQUARE_B>"));
