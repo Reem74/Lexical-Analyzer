@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Operators{
-    ArrayList<Token> arrayOfOperators = new ArrayList<Token>();
+    private ArrayList<Token> arrayOfOperators = new ArrayList<Token>();
     private Operators() {
         arrayOfOperators.add(new Token("}" ,"<LEFT_CURLY_B>"));
         arrayOfOperators.add(new Token("\\{" ,"<RIGHT_CURLY_B>"));
@@ -15,7 +15,7 @@ public class Operators{
         arrayOfOperators.add(new Token("!" ,"<NOT>"));
         arrayOfOperators.add(new Token("=" ,"<ASSIGN_OPERATOR>"));
         arrayOfOperators.add(new Token("#" ,"<PREPROCESSOR>"));
-        arrayOfOperators.add(new Token("\\" ,"<BACKWARD_SLASH>"));
+//        arrayOfOperators.add(new Token("\\" ,"<BACKWARD_SLASH>"));
         arrayOfOperators.add(new Token("\\+" ,"<PLUS>"));
         arrayOfOperators.add(new Token("\\-" ,"<MINUS>"));
         arrayOfOperators.add(new Token("/" ,"<DIVIDE>"));
@@ -41,5 +41,8 @@ public class Operators{
     }
     public Token arrayOfOperatorsGetIdx(int idx) {
         return arrayOfOperators.get(idx);
+    }
+    public ArrayList<Token> getArrayOfOperators() {
+        return arrayOfOperators;
     }
 }

@@ -13,5 +13,7 @@ public class Identifiers {
     public Token arrayOfIdentifiersGetIdx(int idx) {
         return arrayOfIdentifiers.get(idx);
     }
-
+    public ArrayList<Token> getArrayOfIdentifiers() {
+        return arrayOfIdentifiers;
+    }
 }

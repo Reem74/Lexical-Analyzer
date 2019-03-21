@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Comments {
-    ArrayList<Token> arrayOfComments = new ArrayList<Token>();
+    private ArrayList<Token> arrayOfComments = new ArrayList<Token>();
     private Comments() {
         arrayOfComments.add(new Token("/*./*" ,"<MULTI_COMMENT>"));
         arrayOfComments.add(new Token("//.\\n" ,"<SINGLE_COMMENT>"));
@@ -13,5 +13,8 @@ public class Comments {
     }
     public Token arrayOfCommentsGetIdx(int idx) {
         return arrayOfComments.get(idx);
+    }
+    public ArrayList<Token> getArrayOfComments() {
+        return arrayOfComments;
     }
 }
