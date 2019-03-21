@@ -13,7 +13,7 @@ public class SpecialSymbols {
         arrayOfSpecialSymbols.add(new Token(";" ,"<SEMICOLON>"));
         arrayOfSpecialSymbols.add(new Token("\\." ,"<DOT>"));
         /*
-        back Slash not workint
+        back Slash not working btdrb
         //arrayOfSpecialSymbols.add(new Token("\\" ,"<BACKWARD_SLASH>"));
         */
 
