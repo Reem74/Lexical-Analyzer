@@ -14,7 +14,7 @@ public class Operators{
         arrayOfOperators.add(new Token(">" ,"<GREATERTHAN>"));
         arrayOfOperators.add(new Token("<=" ,"<LESS_EQ>"));
         arrayOfOperators.add(new Token(">=" ,"<GREAT_EQ>"));
-        arrayOfOperators.add(new Token("=" ,"<EQUAL>"));
+        arrayOfOperators.add(new Token("==" ,"<EQUAL>"));
         arrayOfOperators.add(new Token("!=" ,"<NOT_EQUAL>"));
         arrayOfOperators.add(new Token("&" ,"<BITWISE_AND>"));
         arrayOfOperators.add(new Token("\\|" ,"<BITWISE_OR>"));
@@ -24,7 +24,6 @@ public class Operators{
         arrayOfOperators.add(new Token("&&" ,"<AND>"));
         arrayOfOperators.add(new Token("\\|\\|" ,"<OR>"));
         arrayOfOperators.add(new Token("~","<BITWISE_NOT>"));
-        arrayOfOperators.add(new Token("==","<Equal>"));
         arrayOfOperators.add(new Token("\\*","<ASTERICK>"));
 
     }

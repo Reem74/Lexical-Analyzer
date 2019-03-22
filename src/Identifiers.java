@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Identifiers {
     private ArrayList<Token> arrayOfIdentifiers = new ArrayList<Token>();
     private Identifiers() {
-        arrayOfIdentifiers.add(new Token("\\b([a-zA-Z]| _)\\w*","<ID>"));
+        arrayOfIdentifiers.add(new Token("\\b([a-zA-Z])\\w*","<ID>"));
 
 
     }

@@ -1,4 +1,1 @@
-bool isPowerOfTwo(int x) {
-// First x in the below expression is //for thecasewhenxis0
-return x && (!(x & (x - 1)));
-}
+x0 = 2

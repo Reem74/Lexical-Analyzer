@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-///First find comments in the input then find integrals then the rest
 
 public class Main {
     private static ArrayList<Token> addAllTokens() {
@@ -48,51 +47,33 @@ public class Main {
             e.printStackTrace();
         }
 
-        int inputLenght = input.length();
-
-        int matchedLenght = 0;
-        int Id = 0;
-        int everyInputCharEquivelantInteger[] = new int[inputLenght + 5];
-        HashMap<Integer, String> map = new HashMap<Integer, String>();
-
         ArrayList<ResultToken> results = new ArrayList<ResultToken>();
         for(Token token:tokens) {
             Pattern pattern = Pattern.compile(token.regex,Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(input);
             while (matcher.find()) {
-                ++Id;
+
                 int begin = matcher.start();
                 int end = matcher.end();
-
-                matchedLenght += (end - begin);
 
                 String matched = matcher.group();
                 ResultToken result = new ResultToken(begin,end,token.getID(),matched);
                 results.add(result);
-//                String replacement = token.ID + " :" + matched;
-//                String regex = token.regex;
-//                for (int i = begin; i < end; ++i) {
-//                    everyInputCharEquivelantInteger[i] = Id;
-//                }
-//                map.put(Id, replacement);
-//                input = replace(begin, end, input);
             }
         }
-
+        Collections.sort(results);
         printResult(filterResult(results));
-
-       // Print(input, matchedLenght, everyInputCharEquivelantInteger, map);
-
     }
     static ArrayList<ResultToken> filterResult(ArrayList<ResultToken> initialResult) {
         ArrayList<ResultToken> finalResult = new ArrayList<ResultToken>();
-        Collections.sort(initialResult);
+
         ResultToken cur = new ResultToken(0,0,"","");
         if(initialResult.size() > 0){
             cur = initialResult.get(0);
+            finalResult.add(cur);
         }
         for(int i=1;i<initialResult.size();++i){
-            if(initialResult.get(i).begin > cur.end){
+            if(initialResult.get(i).begin >= cur.end){
                 finalResult.add(initialResult.get(i));
                 cur = initialResult.get(i);
             }
