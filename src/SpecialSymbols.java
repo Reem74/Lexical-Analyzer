@@ -15,6 +15,7 @@ public class SpecialSymbols {
         arrayOfSpecialSymbols.add(new Token("\\\\" ,"<BACKWARD_SLASH>"));
 
         arrayOfSpecialSymbols.add(new Token("\\n","<NEW_LINE>"));
+        arrayOfSpecialSymbols.add(new Token("\\s+","<WHITE_SPACE>"));
     }
     private static final SpecialSymbols instance = new SpecialSymbols();
 

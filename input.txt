@@ -1,6 +1,4 @@
-12.1
-0.932
-.23
-+14.9
--.1
--123
+bool isPowerOfTwo(int x) {
+// First x in the below expression is //for thecasewhenxis0
+return x && (!(x & (x - 1)));
+}
