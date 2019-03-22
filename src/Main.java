@@ -35,7 +35,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(Comments.getInstance().arrayOfCommentsGetIdx(0).regex);
         ArrayList<Token> tokens = addAllTokens();
         File f = new File("/Users/abdo/Desktop/data/FCI/Compilers/Project/Lexical-Analyzer/input.txt");
         String input = "";
@@ -52,7 +51,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("input is : " + input);
         int inputLenght = input.length();
 
         int matchedLenght = 0;
