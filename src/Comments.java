@@ -4,8 +4,8 @@ public class Comments {
 
     private ArrayList<Token> arrayOfComments = new ArrayList<Token>();
     private Comments() {
-        arrayOfComments.add(new Token("/\\*.\\*/" ,"<MULTI_COMMENT>"));
-        arrayOfComments.add(new Token("//.*\\n" ,"<SINGLE_COMMENT>"));
+        arrayOfComments.add(new Token("(?s)/\\*.*\\*/" ,"<MULTI_COMMENT>"));
+        arrayOfComments.add(new Token("//.*\n" ,"<SINGLE_COMMENT>"));
     }
     private static final Comments instance = new Comments();
 

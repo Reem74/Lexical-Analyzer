@@ -1,6 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,9 +35,24 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        System.out.println(Comments.getInstance().arrayOfCommentsGetIdx(0).regex);
         ArrayList<Token> tokens = addAllTokens();
+        File f = new File("/Users/abdo/Desktop/data/FCI/Compilers/Project/Lexical-Analyzer/input.txt");
+        String input = "";
+        Boolean firstLine = true;
+        try {
+            Scanner sc = new Scanner(f);
+            while(sc.hasNext()){
+                if(!firstLine)
+                    input += "\n";
+                firstLine = false;
+                input += sc.nextLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-        String input = "!";
+        System.out.println("input is : " + input);
         int inputLenght = input.length();
 
         int matchedLenght = 0;
@@ -43,7 +61,7 @@ public class Main {
         HashMap<Integer, String> map = new HashMap<Integer, String>();
 
         for(Token token:tokens) {
-            Pattern pattern = Pattern.compile(token.regex);
+            Pattern pattern = Pattern.compile(token.regex,Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(input);
             while (matcher.find()) {
                 ++Id;
@@ -70,13 +88,13 @@ public class Main {
         if(matchedLenght != input.length()) {
             System.out.println("ERROR some values are not matched with a token");
         }
-        else {
+
             everyInputCharEquivelantInteger[inputLenght] = 0;
             for (int i = 0; i < inputLenght ; ++i) {
                 if(everyInputCharEquivelantInteger[i + 1] != everyInputCharEquivelantInteger[i]) {
                     System.out.println(map.get(everyInputCharEquivelantInteger[i]));
                 }
             }
-        }
+
     }
 }
