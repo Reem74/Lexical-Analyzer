@@ -13,6 +13,8 @@ public class SpecialSymbols {
         arrayOfSpecialSymbols.add(new Token(";" ,"<SEMICOLON>"));
         arrayOfSpecialSymbols.add(new Token("\\." ,"<DOT>"));
         arrayOfSpecialSymbols.add(new Token("\\\\" ,"<BACKWARD_SLASH>"));
+
+        arrayOfSpecialSymbols.add(new Token("\\n","<NEW_LINE>"));
     }
     private static final SpecialSymbols instance = new SpecialSymbols();
 
