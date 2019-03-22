@@ -34,7 +34,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Token> tokens = addAllTokens();
 
-        String input = "}}}";
+        String input = "!";
         int inputLenght = input.length();
 
         int matchedLenght = 0;
