@@ -23,6 +23,10 @@ public class Operators{
         arrayOfOperators.add(new Token("<<" ,"<RIGHT_SHIFT>"));
         arrayOfOperators.add(new Token("&&" ,"<AND>"));
         arrayOfOperators.add(new Token("\\|\\|" ,"<OR>"));
+        arrayOfOperators.add(new Token("~","<BITWISE_NOT>"));
+        arrayOfOperators.add(new Token("==","<Equal>"));
+        arrayOfOperators.add(new Token("\\*","<ASTERICK>"));
+
     }
     private static final Operators instance = new Operators();
 
