@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,6 +55,7 @@ public class Main {
         int everyInputCharEquivelantInteger[] = new int[inputLenght + 5];
         HashMap<Integer, String> map = new HashMap<Integer, String>();
 
+        ArrayList<ResultToken> results = new ArrayList<ResultToken>();
         for(Token token:tokens) {
             Pattern pattern = Pattern.compile(token.regex,Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(input);
@@ -69,30 +67,58 @@ public class Main {
                 matchedLenght += (end - begin);
 
                 String matched = matcher.group();
-                String replacement = token.ID + " :" + matched;
-                String regex = token.regex;
-                for (int i = begin; i < end; ++i) {
-                    everyInputCharEquivelantInteger[i] = Id;
-                }
-                map.put(Id, replacement);
-                input = replace(begin, end, input);
+                ResultToken result = new ResultToken(begin,end,token.getID(),matched);
+                results.add(result);
+//                String replacement = token.ID + " :" + matched;
+//                String regex = token.regex;
+//                for (int i = begin; i < end; ++i) {
+//                    everyInputCharEquivelantInteger[i] = Id;
+//                }
+//                map.put(Id, replacement);
+//                input = replace(begin, end, input);
             }
         }
-        Print(input, matchedLenght, everyInputCharEquivelantInteger, map);
+
+        printResult(filterResult(results));
+
+       // Print(input, matchedLenght, everyInputCharEquivelantInteger, map);
 
     }
+    static ArrayList<ResultToken> filterResult(ArrayList<ResultToken> initialResult) {
+        ArrayList<ResultToken> finalResult = new ArrayList<ResultToken>();
+        Collections.sort(initialResult);
+        ResultToken cur = new ResultToken(0,0,"","");
+        if(initialResult.size() > 0){
+            cur = initialResult.get(0);
+        }
+        for(int i=1;i<initialResult.size();++i){
+            if(initialResult.get(i).begin > cur.end){
+                finalResult.add(initialResult.get(i));
+                cur = initialResult.get(i);
+            }
+        }
+        return finalResult;
+    }
+
+    static void printResult(ArrayList<ResultToken> result) {
+        for (ResultToken res:
+             result) {
+            System.out.println(res.label +": "+res.match);
+        }
+    }
+
     static void Print(String input , int matchedLenght, int everyInputCharEquivelantInteger[], HashMap<Integer, String> map) {
         int inputLenght = input.length();
         if(matchedLenght != input.length()) {
             System.out.println("ERROR some values are not matched with a token");
         }
-
+        else {
             everyInputCharEquivelantInteger[inputLenght] = 0;
-            for (int i = 0; i < inputLenght ; ++i) {
-                if(everyInputCharEquivelantInteger[i + 1] != everyInputCharEquivelantInteger[i]) {
+            for (int i = 0; i < inputLenght; ++i) {
+                if (everyInputCharEquivelantInteger[i + 1] != everyInputCharEquivelantInteger[i]) {
                     System.out.println(map.get(everyInputCharEquivelantInteger[i]));
                 }
             }
-
+        }
     }
 }
